@@ -1,0 +1,55 @@
+Essential CLI Commands for Asset Bundles
+Databricks Asset Bundles – Essential CLI Commands
+Databricks Asset Bundles are designed to standardize how we define and deploy Databricks projects across environments such as dev, test, and prod. While the videos in this course mainly focused on using the UI, it’s also important to understand the basic CLI commands used with bundles. These may appear in the certification exam.
+
+In the videos, we already covered the two most important commands:
+
+databricks bundle deploy – to push your project to a Databricks workspace.
+
+databricks bundle destroy – to remove all deployed resources from the workspace.
+
+For completeness, here is the full list of essential commands you should know:
+
+1. databricks bundle init
+Initializes a new Databricks bundle project in your working directory.
+
+databricks bundle init
+Prompts you for a template (Python, SQL, MLflow, etc.).
+
+Creates a starter databricks.yml file and project folder structure.
+
+2. databricks bundle validate
+Validates the configuration of your bundle before deployment.
+
+databricks bundle validate
+Ensures your databricks.yml file is correctly structured.
+
+Catches missing or invalid fields early.
+
+Always a good practice to run before deploying.
+
+3. databricks bundle deploy
+Deploys your bundle to the Databricks workspace.
+
+databricks bundle deploy -t dev
+-t specifies the target environment (e.g. dev, test, prod).
+
+Uploads source code and provisions jobs, clusters, pipelines, etc.
+
+Creates a hidden .bundle folder in the workspace with your files.
+
+4. databricks bundle run
+Runs a defined workflow (job) from your bundle.
+
+databricks bundle run my_job
+Executes a specific job defined in the bundle.
+
+Useful for testing deployments.
+
+5. databricks bundle destroy
+Removes all deployed resources from the specified target environment.
+
+databricks bundle destroy -t dev
+Cleans up jobs, clusters, and other resources created by the bundle.
+
+Helpful when resetting environments or avoiding conflicts in shared workspaces.
